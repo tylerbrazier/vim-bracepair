@@ -25,13 +25,13 @@ function! s:Complete(c)
   let rr = line[col]   " two chars right
 
   " close matching braces (unless in front of a nonwhitespace char)
-  if a:c == '(' && r !~ '\S'
+  if a:c == '(' && (r == ')' || r == '}' || r == ']' || r !~ '\S')
     return "()\<left>"
 
-  elseif a:c == '{' && r !~ '\S'
+  elseif a:c == '{' && (r == ')' || r == '}' || r == ']' || r !~ '\S')
     return "{}\<left>"
 
-  elseif a:c == '[' && r !~ '\S'
+  elseif a:c == '[' && (r == ')' || r == '}' || r == ']' || r !~ '\S')
     return "[]\<left>"
 
   " step over closing braces when typed
