@@ -27,10 +27,3 @@ Enter expands braces like:
     ...{|} -> ...{
                 |
               }
-
-If you have a custom insert mode mapping for `<CR>`, e.g. to select a
-completion option, you can do something like this to keep it working correctly:
-
-    imap <expr> <cr> pumvisible() ? "\<c-y>" :
-          \ exists('g:loaded_bracepair') ? "<Plug>bracepairExpandCR" :
-          \ "\<cr>"

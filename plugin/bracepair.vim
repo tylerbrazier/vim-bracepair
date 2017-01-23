@@ -11,10 +11,7 @@ inoremap <expr> [ <SID>Complete('[')
 inoremap <expr> ] <SID>Complete(']')
 inoremap <expr> <space> <SID>Complete("\<space>")
 inoremap <expr> <bs> <SID>Complete("\<bs>")
-inoremap <expr> <Plug>bracepairExpandCR <SID>Complete("\<cr>")
-if !hasmapto('<Plug>bracepairExpandCR', 'i')
-  imap <buffer> <expr> <cr> "<Plug>bracepairExpandCR"
-endif
+inoremap <expr> <cr> <SID>Complete("\<cr>")
 
 function! s:Complete(c)
   let line = getline('.')
